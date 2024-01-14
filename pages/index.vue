@@ -43,6 +43,8 @@
             </v-container>
         </v-col>
     </v-row>
+
+    <Rooms />
 </template>
 
 <script setup>
