@@ -5,7 +5,7 @@
                 <v-col :cols="image.cols" :class="`image-layout-item`">
                     <v-img :src="`https://picsum.photos/500/300?image=${image.cols * 40}`" cover height="100%"
                         :class="`image-item-${imgIdx}`">
-                        <v-btn v-if="!imgIdx" class="see-photos-btn" size="small">
+                        <v-btn v-if="!imgIdx" class="see-photos-btn text-capitalize" size="small">
                             <v-icon start icon="mdi-grid"></v-icon>
                             See Photos
                         </v-btn>

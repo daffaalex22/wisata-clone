@@ -41,6 +41,11 @@ Upon inspecting the page, the author found that Wisata App uses many components 
 - Nuxt, a JS library based off of Vue.js
 - Vuetify, a UI library for Vue.js that's created based on Google's Material Design Specification
 
+#### Decisions
+
+* The author cannot find Hotel's headline with the exact same copywriting, so `data.general_info.descriptions.headline`, which consists of only 3 words, is used instead.
+* 
+
 ### API
 The API used here is the one's provided from the test description:
 ```
