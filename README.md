@@ -43,8 +43,10 @@ Upon inspecting the page, the author found that Wisata App uses many components 
 
 #### Decisions
 
+* Upon inspecting the page, it's found that wisata.app is built using Nuxt
+![Inspect](/assets/inspect-element-nuxt.png)
 * The author cannot find Hotel's headline with the exact same copywriting, so `data.general_info.descriptions.headline`, which consists of only 3 words, is used instead.
-* 
+* The icon used for when `meal_plan_description === ""` (i.e. Without breakfast) cannot be found in the Material Design Icons specification
 
 ### API
 The API used here is the one's provided from the test description:

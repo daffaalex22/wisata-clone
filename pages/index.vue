@@ -1,8 +1,6 @@
 <template>
     <CatalogData :data="data" />
 
-    <!-- <h2>{{ data.catalog.review_rating }}</h2> -->
-
     <v-row justify="center">
         <v-col cols="10">
             <v-divider></v-divider>
@@ -12,7 +10,8 @@
                         class="px-auto ml-1 mr-2">Deals</span></v-tab>
                 <v-tab :ripple="false" :key="2" :value="2"><span><v-icon end icon="mdi-grid"></v-icon></span><span
                         class="px-auto ml-1 mr-2">Photos</span></v-tab>
-                <v-tab :ripple="false" :key="3" :value="3"><span><v-icon end icon="mdi-information-outline"></v-icon></span><span
+                <v-tab :ripple="false" :key="3" :value="3"><span><v-icon end
+                            icon="mdi-information-outline"></v-icon></span><span
                         class="px-auto ml-1 mr-2">Info</span></v-tab>
             </v-tabs>
 
@@ -70,7 +69,7 @@
 import data from '~/static/dummy-data.json';
 
 const filterSelection = ref([])
-const tab = ref(1)
+const tab = ref(null)
 
 const clearFilter = () => {
     filterSelection.value = []

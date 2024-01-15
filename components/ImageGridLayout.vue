@@ -1,11 +1,11 @@
 <template>
     <v-container class="px-0 py-0">
         <v-row class="image-layout">
-            <template v-for="(image, imgIdx) in imageLayout" :key="imgIdx">
-                <v-col :cols="image.cols" :class="`image-layout-item`">
-                    <v-img :src="`https://picsum.photos/500/300?image=${image.cols * 40}`" cover height="100%"
-                        :class="`image-item-${imgIdx}`">
-                        <v-btn v-if="!imgIdx" class="see-photos-btn text-capitalize" size="small">
+            <!-- <h2>{{ offer }}</h2> -->
+            <template v-for="(image, idx) in roomImages" :key="idx">
+                <v-col :cols="imageLayout[idx]?.cols || 4" :class="`image-layout-item`">
+                    <v-img :src="`${image.size_sm}`" cover height="100%" :class="`image-item-${idx}`">
+                        <v-btn v-if="!idx" class="see-photos-btn text-capitalize" size="small">
                             <v-icon start icon="mdi-grid"></v-icon>
                             See Photos
                         </v-btn>
@@ -19,6 +19,12 @@
 
 <script setup>
 const imageLayout = [{ cols: 12 }, { cols: 4 }, { cols: 4 }, { cols: 4 }]
+const props = defineProps({
+    offer: Object
+})
+
+const roomImages = props.offer[0].room_images.slice(0, 4);
+
 </script>
 
 <style scoped>

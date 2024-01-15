@@ -9,10 +9,8 @@
 
             <slot />
 
-            <footer>
-
-            </footer>
         </v-container>
+        <Footer />
     </v-app>
 </template>
 

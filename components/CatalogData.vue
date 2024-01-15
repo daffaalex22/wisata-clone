@@ -2,8 +2,8 @@
     <v-row justify="center">
         <v-col cols="10" class="pb-0">
             <v-container>
-                <v-row>
-                    <v-col cols="4" class="pb-0">
+                <v-row justify="end">
+                    <v-col cols="4" class="pb-0 d-flex justify-center">
                         <v-avatar size="180">
                             <v-img :src="data.catalog.hero_image_url.sm" alt="John" cover>
                             </v-img>
@@ -13,9 +13,9 @@
                     <v-col cols="8" class="pt-0 pb-0">
                         <v-container>
                             <v-row justify="start">
-                                <v-col class="pt-0">
+                                <v-col class="pt-0 pl-0">
                                     <v-card variant="flat">
-                                        <v-card-item>
+                                        <v-card-item class="pl-0">
                                             <div>
                                                 <div class="text-h6 mb-1">
                                                     {{ data.name }}
