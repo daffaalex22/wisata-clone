@@ -21,7 +21,7 @@
                 </v-window-item>
 
                 <v-window-item :value="2">
-                    Two
+                    <ImageGallery :images="data.image" />
                 </v-window-item>
 
                 <v-window-item :value="3">

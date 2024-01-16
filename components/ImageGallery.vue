@@ -1,10 +1,7 @@
 <template>
-    Test
-    <v-row>
-        <v-col v-for="n in 9" :key="n" class="d-flex child-flex" cols="4">
-            <v-img :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`" aspect-ratio="1" cover
-                class="bg-grey-lighten-2">
+    <v-row class="mt-2">
+        <v-col v-for="image in imageUrls" :key="image" class="d-flex child-flex" md="4" sm="6" xs="12">
+            <v-img :src="image" :lazy-src="image" aspect-ratio="1" cover class="bg-grey-lighten-2">
                 <template v-slot:placeholder>
                     <v-row class="fill-height ma-0" align="center" justify="center">
                         <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
@@ -23,10 +20,8 @@ const { images } = defineProps({
 const imageUrls = []
 
 images.forEach(function (image) {
-    imageUrls.push(image.url.ori)
+    imageUrls.push(image.url.sm)
 });
-
-console.log("imageUrls", imageUrls)
 
 </script>
 
