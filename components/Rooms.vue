@@ -24,13 +24,18 @@
     <v-row>
         <v-col xs="12">
             <v-container>
-                <v-row justify="space-between" v-for="(offer, key) in groupedData" :key="key">
-                    <v-col sm="4" class="d-none d-sm-flex">
+                <v-row class="d-none d-sm-flex" justify="space-between" v-for="(offer, key) in groupedData" :key="key">
+                    <v-col sm="4">
                         <ImageGridLayout :offer="offer" />
                     </v-col>
 
                     <v-col class="pt-0">
-                        <RoomOptionLayout class="d-none d-sm-flex" :offer="offer" />
+                        <RoomOptionLayout :offer="offer" />
+                    </v-col>
+                </v-row>
+                <v-row class="d-flex d-sm-none" justify="end" v-for="(offer, key) in groupedData" :key="key">
+                    <v-col class="py-0 px-0" cols="12">
+                        <RoomOptionMobile :offer="offer" />
                     </v-col>
                 </v-row>
             </v-container>
@@ -40,6 +45,9 @@
 
 <script setup>
 import availabilityData from '~/static/dummy-availability.json'
+import { useDisplay } from 'vuetify'
+
+const { xs, md } = useDisplay();
 
 const filterSelection = ref([])
 
