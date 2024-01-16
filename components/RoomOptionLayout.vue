@@ -89,6 +89,11 @@
                                                     <v-icon size="x-large" color="grey"></v-icon></template></v-btn>
                                         </v-col>
                                     </v-row>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
                                     <v-row>
                                         <v-col cols="12" align-self="end">
                                             <v-btn class="text-capitalize" color="#007aff" elevation="0">
