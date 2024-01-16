@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-container>
+        <v-container class="px-0">
             <NavBar />
 
             <br>
