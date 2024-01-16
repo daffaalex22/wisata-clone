@@ -44,7 +44,21 @@
 </template>
 
 <script setup>
-import availabilityData from '~/static/dummy-availability.json'
+// import availabilityData from '~/static/dummy-availability.json'
+
+const getIdFromSlug = (slug) => {
+    const slugArray = slug.split("-");
+    return slugArray[slugArray.length - 1]
+}
+
+const { slug } = useRoute().params
+const id = getIdFromSlug(slug)
+const query = useRoute().query
+
+const { data: dataFromAPI } = await useFetch('https://exterior-technical-test-api.vercel.app/property/availability/' + id, { query })
+const availabilityData = toRaw(dataFromAPI.value)
+
+
 import { useDisplay } from 'vuetify'
 
 const { xs, md } = useDisplay();
@@ -68,7 +82,6 @@ offerList.value.forEach(function (a) {
 const originalGroupedData = { ...groupedData.value }
 
 watch(filterSelection, (newFilters) => {
-    console.log("value changed")
     groupedData.value = {}
     if (!newFilters?.length) {
         groupedData.value = { ...originalGroupedData }
