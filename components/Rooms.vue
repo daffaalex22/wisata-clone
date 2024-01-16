@@ -46,6 +46,13 @@
 <script setup>
 // import availabilityData from '~/static/dummy-availability.json'
 
+const filterSelection = ref([])
+
+const clearFilter = () => {
+    filterSelection.value = []
+}
+
+
 const getIdFromSlug = (slug) => {
     const slugArray = slug.split("-");
     return slugArray[slugArray.length - 1]
@@ -55,36 +62,42 @@ const { slug } = useRoute().params
 const id = getIdFromSlug(slug)
 const query = useRoute().query
 
+const availabilityData = ref(null)
+
 const { data: dataFromAPI } = await useFetch('https://exterior-technical-test-api.vercel.app/property/availability/' + id, { query })
-const availabilityData = toRaw(dataFromAPI.value)
 
-
-import { useDisplay } from 'vuetify'
-
-const { xs, md } = useDisplay();
-
-const filterSelection = ref([])
-
-const clearFilter = () => {
-    filterSelection.value = []
-}
+watch(dataFromAPI, (newDataFromAPI) => {
+    availabilityData.value = toRaw(dataFromAPI.value)
+})
 
 const offerList = ref(null)
-offerList.value = availabilityData.offer_list
-
 const groupedData = ref({});
+watch(availabilityData, (newAvailability) => {
+    offerList.value = availabilityData.value.offer_list
+})
 
-offerList.value.forEach(function (a) {
-    groupedData.value[a.room_name] = groupedData.value[a.room_name] || [];
-    groupedData.value[a.room_name].push(a);
-});
+watch(offerList, (newOfferList) => {
+    for (const key in groupedData.value) {
+        delete groupedData.value[key];
+    }
 
-const originalGroupedData = { ...groupedData.value }
+    offerList.value.forEach(function (a) {
+        groupedData.value[a.room_name] = groupedData.value[a.room_name] || [];
+        groupedData.value[a.room_name].push(a);
+    });
+})
+
 
 watch(filterSelection, (newFilters) => {
-    groupedData.value = {}
+    for (const key in groupedData.value) {
+        delete groupedData.value[key];
+    }
+
     if (!newFilters?.length) {
-        groupedData.value = { ...originalGroupedData }
+        offerList.value.forEach(function (a) {
+            groupedData.value[a.room_name] = groupedData.value[a.room_name] || [];
+            groupedData.value[a.room_name].push(a);
+        });
         return
     }
 

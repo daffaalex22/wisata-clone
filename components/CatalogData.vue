@@ -82,7 +82,7 @@
 
 <script setup>
 const props = defineProps({
-    data: String
+    data: Object
 })
 
 const data = props.data

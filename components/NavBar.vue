@@ -5,7 +5,7 @@
                 <v-container>
                     <v-row justify-xs="center" justify-md="center">
                         <v-col xs="2" md="1">
-                            <v-btn class="d-flex d-sm-none" size="large" icon="mdi-chevron-left" ripple="false">
+                            <v-btn class="d-flex d-sm-none" size="large" icon="mdi-chevron-left" :ripple="false">
                                 <template v-slot:>
                                     <v-icon size="x-large" color="#007aff"></v-icon></template>
                             </v-btn>

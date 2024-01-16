@@ -34,6 +34,7 @@
 
 <script setup>
 const tab = ref(null)
+const data = ref(null)
 
 const getIdFromSlug = (slug) => {
     const slugArray = slug.split("-");
@@ -45,7 +46,7 @@ const id = getIdFromSlug(slug)
 
 const { data: dataFromAPI } = await useFetch('https://exterior-technical-test-api.vercel.app/property?id=' + id)
 const rawData = toRaw(dataFromAPI.value)
-const data = rawData[id]
+data.value = rawData[id]
 
 </script>
 
