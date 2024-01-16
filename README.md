@@ -21,7 +21,9 @@ Upon inspecting the page, the author found that Wisata App uses many components 
 There might be a couple of other decisions that I do not list here due to time limitation.
 
 * Upon inspecting the page, it's found that wisata.app is built using Nuxt
+
 ![Inspect](/assets/inspect-element-nuxt.png)
+
 * The author cannot find Hotel's headline with the exact same copywriting, so `data.general_info.descriptions.headline`, which consists of only 3 words, is used instead.
 * The icon used for when `meal_plan_description === ""` (i.e. Without breakfast) cannot be found in the Material Design Icons specification
 * Upon implementing the Skeleton Loader, the author found an error that doesn't render the whole components showing property's offer after fetching data from API. The way the author solves that is by implementing some watchers and updating the associated reactive states. Due to this close-to-deadling error, Skeleton loader is not implemented
